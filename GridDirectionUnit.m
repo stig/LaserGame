@@ -15,7 +15,7 @@
     id direction;
     direction = [GridDirection directionFor:@"North"];
     STAssertEqualObjects([direction directionSymbol], @"North", nil);
-    STAssertEqualObjects([direction vector], @"0@-1", nil);
+    STAssertEqualObjects([direction vector], @"0@1", nil);
     STAssertEqualObjects([direction adjecentInversionSymbol], @"South", nil);
 
     direction = [GridDirection directionFor:@"East"];
@@ -25,7 +25,7 @@
     
     direction = [GridDirection directionFor:@"South"];
     STAssertEqualObjects([direction directionSymbol], @"South", nil);
-    STAssertEqualObjects([direction vector], @"0@1", nil);
+    STAssertEqualObjects([direction vector], @"0@-1", nil);
     STAssertEqualObjects([direction adjecentInversionSymbol], @"North", nil);
     
     direction = [GridDirection directionFor:@"West"];

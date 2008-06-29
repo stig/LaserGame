@@ -20,7 +20,7 @@
 }
 
 + (NSString*)vector {
-    return @"0@1";
+    return @"0@-1";
 }
 
 @end

@@ -33,13 +33,13 @@
     id grid = [self generateDemoGrid];
     STAssertEquals([[grid cells] count], (unsigned)5 * 5, nil);
     
-    id cell = [grid at:@"5@1"];
+    id cell = [grid at:@"1@1"];
     STAssertTrue([cell isOff], nil);
 
     [grid activateCellsInPath];
     STAssertTrue([cell isOn], nil);
     
-    NSArray *pathElements = [@"1@5 2@5 3@5 4@5 4@4 4@3 4@2 4@1 5@1" componentsSeparatedByString:@" "];
+    NSArray *pathElements = [@"1@1 4@5 4@1 2@1 4@4 5@5 4@2 3@1 4@3" componentsSeparatedByString:@" "];
     for (id elem in [grid cells]) {
         if ([pathElements containsObject:elem])
             STAssertTrue([[grid at:elem] isOn], elem);
