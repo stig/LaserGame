@@ -8,6 +8,7 @@
 
 #import "TargetCellRenderer.h"
 #import "TargetCell.h"
+#import "Grid.h"
 
 @implementation TargetCellRenderer
 
@@ -17,12 +18,20 @@
 
 - (void)renderContents {
     [super renderContents];
+
     [NSBezierPath setDefaultLineWidth:3];
-    id path = [NSBezierPath bezierPath];     
+    id path = [NSBezierPath bezierPath];
     [path appendBezierPathWithOvalInRect:[self rectScaledDownBy:0.25]];
     
-    [[NSColor cyanColor] set];
+    id cell = [grid at:cellLocation];
+    if ([cell isOn])
+        [[NSColor redColor] set];
+    else
+        [[NSColor cyanColor] set];
+
     [path fill];
+    
+    
     
     [[NSColor blueColor] set];
     [path stroke];

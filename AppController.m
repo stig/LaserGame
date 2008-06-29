@@ -26,8 +26,8 @@
 - (IBAction)fireLaser:(id)sender {
     NSLog(@"fireLaser:");
     [grid activateCellsInPath];
+    [boardView setNeedsDisplay:YES];
 }
-
 
 #pragma mark Pass-through
 
