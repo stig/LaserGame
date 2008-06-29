@@ -24,6 +24,7 @@
 		5362C86F0E1783710033B15A /* CellRendererUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5362C86E0E1783710033B15A /* CellRendererUnit.m */; };
 		5362C9480E1790680033B15A /* GridFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5362C9460E1790680033B15A /* GridFactory.h */; };
 		5362C9490E1790680033B15A /* GridFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5362C9470E1790680033B15A /* GridFactory.m */; };
+		5362CB1B0E17E2C70033B15A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5362CB1A0E17E2C70033B15A /* Credits.rtf */; };
 		53DA90900E0E9F68007FB733 /* Cell.h in Headers */ = {isa = PBXBuildFile; fileRef = 53DA908E0E0E9F68007FB733 /* Cell.h */; };
 		53DA90910E0E9F68007FB733 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA908F0E0E9F68007FB733 /* Cell.m */; };
 		53DA91980E0F035F007FB733 /* LaserPathElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 53DA91960E0F035F007FB733 /* LaserPathElement.h */; };
@@ -105,6 +106,7 @@
 		5362C86E0E1783710033B15A /* CellRendererUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellRendererUnit.m; sourceTree = "<group>"; };
 		5362C9460E1790680033B15A /* GridFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridFactory.h; sourceTree = "<group>"; };
 		5362C9470E1790680033B15A /* GridFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridFactory.m; sourceTree = "<group>"; };
+		5362CB1A0E17E2C70033B15A /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		53DA908E0E0E9F68007FB733 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		53DA908F0E0E9F68007FB733 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		53DA91960E0F035F007FB733 /* LaserPathElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaserPathElement.h; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				533B39190E0E9610002CA793 /* Tests-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				5362CB1A0E17E2C70033B15A /* Credits.rtf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				5362CB1B0E17E2C70033B15A /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
