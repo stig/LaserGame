@@ -13,6 +13,10 @@ extern NSString * const East;
 extern NSString * const South;
 extern NSString * const West;
 
+typedef NSPoint Vector;
+
+Vector MakeVector(float x, float y);
+
 @interface GridDirection : NSObject {
 
 }
@@ -20,6 +24,6 @@ extern NSString * const West;
 + (Class)directionFor:(NSString*)symbol;
 + (NSString*)directionSymbol;
 + (NSString*)adjecentInversionSymbol;
-+ (NSString*)vector;
++ (Vector)vector;
 
 @end

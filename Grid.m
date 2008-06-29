@@ -25,9 +25,9 @@
     self.numberOfRows = rows;
     self.numberOfColumns = columns;
     
-    for (int r = 1; r <= self.numberOfRows; r++) {
-        for (int c = 1; c <= self.numberOfColumns; c++) {
-            NSString *location = [NSString stringWithFormat:@"%d@%d", r, c];
+    for (int r = 0; r < self.numberOfRows; r++) {
+        for (int c = 0; c < self.numberOfColumns; c++) {
+            NSValue *location = [NSValue valueWithPoint:NSMakePoint(r, c)];
             [self setCell:[BlankCell new] at:location];
         }
     }
@@ -39,17 +39,17 @@
     return [self initWithRows:3 columns:3];
 }
 
-- (id)at:(NSString*)position {
-    return [self.cells objectForKey:position];
+- (id)at:(NSValue*)position {
+    return [cells objectForKey:position];
 }
 
-- (void)setCell:(Cell*)cell at:(NSString*)position {
+- (void)setCell:(Cell*)cell at:(NSValue*)position {
     cell.gridLocation = position;
-    [self.cells setObject:cell forKey:position];
+    [cells setObject:cell forKey:position];
 }
 
 - (Cell*)startingCell {
-    return [self at:@"1@1"];
+    return [self at:[NSValue valueWithPoint:NSMakePoint(0, 0)]];
 }
 
 - (void)calculatePath {
@@ -63,14 +63,13 @@
 }
 
 - (void)activateCellsInPath {
-    NSLog(@"activateCellsInPath");
     self.laserIsActive = YES;
     [self calculatePath];
     [self.laserBeamPath makeObjectsPerformSelector:@selector(activateCell)];
 }
 
-- (id)laserLength {
-    return self.laserIsActive ? [NSNumber numberWithInt:[laserBeamPath count]] : @"n/a";
+- (unsigned)laserLength {
+    return [laserBeamPath count];
 }
 
 @synthesize cells;

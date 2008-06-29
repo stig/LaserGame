@@ -19,8 +19,8 @@
     return North;
 }
 
-+ (NSString*)vector {
-    return @"0@-1";
++ (Vector)vector {
+    return MakeVector(0, -1);
 }
 
 @end

@@ -12,12 +12,12 @@
 @interface Cell : NSObject {
     NSMutableDictionary *activeSegments;
     NSMutableDictionary *exitSides;
-    NSString *gridLocation;
+    NSValue *gridLocation;
 }
 
 @property(retain) NSMutableDictionary *activeSegments;
 @property(retain) NSMutableDictionary *exitSides;
-@property(copy) NSString *gridLocation;
+@property(copy) NSValue *gridLocation;
 
 - (BOOL)isOn;
 - (BOOL)isOff;

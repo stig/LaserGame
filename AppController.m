@@ -40,7 +40,7 @@
 }
 
 - (CellRenderer*)rendererForCell:(NSPoint)point {
-    NSString *loc = [NSString stringWithFormat:@"%u@%u", (unsigned)point.x+1, (unsigned)point.y+1];
+    id loc = [NSValue valueWithPoint:point];
     id cell = [grid at:loc];
     CellRenderer *renderer = [[CellRenderer rendererFor:cell] new];
     renderer.grid = grid;

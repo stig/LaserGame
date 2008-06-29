@@ -21,7 +21,7 @@
     [NSBezierPath setDefaultLineWidth:3];
     
     id path = [NSBezierPath bezierPath];
-    id cell = [self.grid at:self.cellLocation];
+    id cell = [grid at:cellLocation];
 
     NSRect r = [self rectScaledDownBy:0.25];
     NSPoint ll = r.origin;

@@ -18,41 +18,49 @@
 - (void)testInitialConditions {
     id grid = [Grid new];
     STAssertFalse([grid laserIsActive], nil);
-    STAssertTrue([[grid at:@"1@1"] isKindOfClass:[BlankCell class]], nil);
+    STAssertTrue([[grid at:[NSValue valueWithPoint:NSMakePoint(1, 1)]] isKindOfClass:[BlankCell class]], nil);
 }
 
 - (void)testNonDefaultGridSizeInitialConditions {
     id grid = [[Grid alloc] initWithRows:4 columns:4];    
     STAssertFalse([grid laserIsActive], nil);
-    STAssertTrue([[grid at:@"1@1"] isKindOfClass:[BlankCell class]], nil);
-    STAssertTrue([[grid at:@"2@3"] isKindOfClass:[BlankCell class]], nil);
-    STAssertTrue([[grid at:@"2@3"] isOff], nil);
+    STAssertTrue([[grid at:[NSValue valueWithPoint:NSMakePoint(1, 1)]] isKindOfClass:[BlankCell class]], nil);
+    STAssertTrue([[grid at:[NSValue valueWithPoint:NSMakePoint(2, 3)]] isKindOfClass:[BlankCell class]], nil);
+    STAssertTrue([[grid at:[NSValue valueWithPoint:NSMakePoint(2, 3)]] isOff], nil);
 }
 
 - (void)testCellInteractions {
-    id grid = [self generateDemoGrid];
+    id grid = [GridFactory demoGrid];
+    
     STAssertEquals([[grid cells] count], (unsigned)5 * 5, nil);
     
-    id cell = [grid at:@"1@1"];
+    id cell = [grid at:[NSValue valueWithPoint:NSMakePoint(0, 0)]];
     STAssertTrue([cell isOff], nil);
 
     [grid activateCellsInPath];
-    STAssertTrue([cell isOn], nil);
-    
-    NSArray *pathElements = [@"1@1 4@5 4@1 2@1 4@4 5@5 4@2 3@1 4@3" componentsSeparatedByString:@" "];
-    for (id elem in [grid cells]) {
+    STAssertTrue([cell isOn], nil);    
+
+    NSSet *pathElements = [NSSet setWithObjects:
+                           [NSValue valueWithPoint:NSMakePoint(0, 0)],
+                           [NSValue valueWithPoint:NSMakePoint(1, 0)],
+                           [NSValue valueWithPoint:NSMakePoint(2, 0)],
+                           [NSValue valueWithPoint:NSMakePoint(3, 0)],
+                           [NSValue valueWithPoint:NSMakePoint(3, 1)],
+                           [NSValue valueWithPoint:NSMakePoint(3, 2)],
+                           [NSValue valueWithPoint:NSMakePoint(3, 3)],
+                           [NSValue valueWithPoint:NSMakePoint(3, 4)],
+                           [NSValue valueWithPoint:NSMakePoint(4, 4)],
+                           nil];
+
+    for (NSValue *elem in [grid cells]) {
+        id cell = [grid at:elem];
         if ([pathElements containsObject:elem])
-            STAssertTrue([[grid at:elem] isOn], elem);
+            STAssertTrue([cell isOn], @"%@", cell);
         else
-            STAssertTrue([[grid at:elem] isOff], elem);
+            STAssertTrue([cell isOff], @"%@", cell);
     }
+    
+    STAssertEquals([grid laserLength], [pathElements count], nil);
 }
-
-#pragma mark Helper methods
-
-- (id)generateDemoGrid {
-    return [GridFactory demoGrid];
-}
-
 
 @end

@@ -27,8 +27,8 @@ NSString * const West = @"West";
     return nil;
 }
 
-+ (NSString*)vector {
-    return nil;
++ (Vector)vector {
+    return NSMakePoint(0, 0);
 }
 
 + (Class)directionFor:(NSString*)symbol {
@@ -44,3 +44,8 @@ NSString * const West = @"West";
 }
 
 @end
+
+Vector MakeVector(float x, float y) {
+    return NSMakePoint(x, y);
+}
+

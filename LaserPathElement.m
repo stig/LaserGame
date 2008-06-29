@@ -25,16 +25,13 @@
 }
 
 - (id)nextElementIn:(Grid*)grid {
-    id loc = [[self.cell gridLocation] componentsSeparatedByString:@"@"];
-    id dirSym = [self.cell exitSideFor:self.entrySide];
+    NSPoint loc = [[cell gridLocation] pointValue];
+    id dirSym = [cell exitSideFor:entrySide];
     if ([dirSym isKindOfClass:[NSNull class]])
         return nil;
     id direction = [GridDirection directionFor:dirSym];
-    id vector = [[direction vector] componentsSeparatedByString:@"@"];
-    id newLoc = [NSString stringWithFormat:@"%u@%u",
-                 [[loc objectAtIndex:0] intValue] + [[vector objectAtIndex:0] intValue],
-                 [[loc objectAtIndex:1] intValue] + [[vector objectAtIndex:1] intValue],
-                 nil];
+    Vector vector = [direction vector];
+    NSValue *newLoc = [NSValue valueWithPoint:NSMakePoint(loc.x + vector.x, loc.y + vector.y)];
     id newCell = [grid at:newLoc];
     return newCell == nil ? nil : [[self class] laserPathElementWithCell:newCell entrySide:[direction adjecentInversionSymbol]];
 }

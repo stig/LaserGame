@@ -27,12 +27,11 @@
 
 - (id)initWithRows:(unsigned)rows columns:(unsigned)columns;
 
-- (id)at:(NSString*)position;
-- (void)setCell:(Cell*)cell at:(NSString*)position;
+- (id)at:(NSValue*)position;
+- (void)setCell:(Cell*)cell at:(NSValue*)position;
 - (Cell*)startingCell;
 - (void)calculatePath;
 - (void)activateCellsInPath;
-
-- (id)laserLength;
+- (unsigned)laserLength;
 
 @end

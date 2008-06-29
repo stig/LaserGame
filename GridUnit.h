@@ -13,6 +13,4 @@
 
 }
 
-- (id)generateDemoGrid;
-
 @end

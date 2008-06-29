@@ -15,7 +15,7 @@
     [super init];
     
     self.activeSegments = [NSMutableDictionary new];
-    if (!self.activeSegments)
+    if (!activeSegments)
         return nil;
     
     [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:North];
@@ -39,17 +39,17 @@
 }
 
 - (BOOL)isSegmentOnFor:(NSString*)direction {
-    return [[self.activeSegments objectForKey:direction] boolValue];
+    return [[activeSegments objectForKey:direction] boolValue];
 }
 
 - (NSString*)exitSideFor:(NSString*)enter {
-    return [self.exitSides objectForKey:enter];
+    return [exitSides objectForKey:enter];
 }
 
 - (void)setLaserEntersFrom:(NSString*)direction {
-    [self.activeSegments setObject:[NSNumber numberWithBool:1] forKey:direction];
+    [activeSegments setObject:[NSNumber numberWithBool:1] forKey:direction];
     NSString *exit = [self exitSideFor:direction];
-    [self.activeSegments setObject:[NSNumber numberWithBool:1] forKey:exit];
+    [activeSegments setObject:[NSNumber numberWithBool:1] forKey:exit];
 }
 
 @synthesize activeSegments;

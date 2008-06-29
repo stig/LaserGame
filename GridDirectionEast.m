@@ -19,7 +19,8 @@
     return West;
 }
 
-+ (NSString*)vector {
-    return @"1@0";
++ (Vector)vector {
+    return MakeVector(1, 0);
 }
+
 @end
