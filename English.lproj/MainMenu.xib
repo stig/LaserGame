@@ -8,7 +8,6 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="57"/>
 			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -1132,9 +1131,9 @@
 									<int key="NSfFlags">1044</int>
 								</object>
 								<reference key="NSControlView" ref="89198894"/>
-								<int key="NSButtonFlags">-2038284033</int>
+								<int key="NSButtonFlags">-930987777</int>
 								<int key="NSButtonFlags2">129</int>
-								<string key="NSAlternateContents"/>
+								<string key="NSAlternateContents">Stop</string>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">200</int>
 								<int key="NSPeriodicInterval">25</int>
@@ -1717,20 +1716,20 @@
 					<int key="connectionID">496</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">fireLaser:</string>
-						<reference key="source" ref="161973047"/>
-						<reference key="destination" ref="89198894"/>
-					</object>
-					<int key="connectionID">497</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="101084908"/>
 						<reference key="destination" ref="161973047"/>
 					</object>
 					<int key="connectionID">498</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleLaser:</string>
+						<reference key="source" ref="161973047"/>
+						<reference key="destination" ref="89198894"/>
+					</object>
+					<int key="connectionID">527</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3138,7 +3137,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">522</int>
+			<int key="maxID">528</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3147,7 +3146,7 @@
 					<string key="className">AppController</string>
 					<string key="superclassName">NSObjectController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">fireLaser:</string>
+						<string key="NS.key.0">toggleLaser:</string>
 						<string key="NS.object.0">id</string>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">

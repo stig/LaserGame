@@ -23,9 +23,14 @@
     return self;
 }
 
-- (IBAction)fireLaser:(id)sender {
-    NSLog(@"fireLaser:");
-    [grid activateCellsInPath];
+- (IBAction)toggleLaser:(id)sender {
+    if ([grid laserActive]) {
+        NSLog(@"laser is active. stopping");
+        [grid stopLaser];
+    } else {
+        NSLog(@"laser is inactive. firing");
+        [grid fireLaser];
+    }
     [boardView setNeedsDisplay:YES];
 }
 

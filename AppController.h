@@ -18,7 +18,7 @@
     Grid *grid;
 }
 
-- (IBAction)fireLaser:(id)sender;
+- (IBAction)toggleLaser:(id)sender;
 
 - (unsigned)numberOfRows;
 - (unsigned)numberOfColumns;
