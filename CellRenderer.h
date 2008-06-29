@@ -27,4 +27,6 @@
 - (void)renderBorder;
 - (void)renderContents;
 
+- (NSRect)rectScaledDownBy:(float)scale;
+
 @end

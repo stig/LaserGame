@@ -44,6 +44,17 @@
           self.rect.origin.x, self.rect.origin.y, self.rect.size.height, self.rect.size.width);
 }
 
+- (NSRect)rectScaledDownBy:(float)scale {
+    NSRect r = self.rect;
+    float dw = r.size.width * scale;
+    float dh = r.size.height * scale;
+    r.origin.x += dw;
+    r.origin.y += dh;
+    r.size.height -= dh * 2;
+    r.size.width -= dw * 2;
+    return r;
+}
+
 @synthesize cellLocation;
 @synthesize grid;
 @synthesize rect;

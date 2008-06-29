@@ -17,8 +17,9 @@
 
 - (void)renderContents {
     [super renderContents];
+    [NSBezierPath setDefaultLineWidth:3];
     id path = [NSBezierPath bezierPath];
-    [path appendBezierPathWithOvalInRect:self.rect];
+    [path appendBezierPathWithOvalInRect:[self rectScaledDownBy:0.25]];
     [path stroke];
 }
 
