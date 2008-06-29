@@ -9,21 +9,20 @@
 #import <Cocoa/Cocoa.h>
 
 @class Cell;
-@class LaserBeamPath;
 
 @interface Grid : NSObject {
     NSMutableDictionary *cells;
     BOOL laserActive;
     unsigned numberOfRows;
     unsigned numberOfColumns;
-    LaserBeamPath *laserBeamPath;
+    NSMutableArray *laserBeamPath;
 }
 
 @property(retain) NSMutableDictionary *cells;
 @property BOOL laserActive;
 @property unsigned numberOfRows;
 @property unsigned numberOfColumns;
-@property(retain) LaserBeamPath *laserBeamPath;
+@property(retain) NSMutableArray *laserBeamPath;
 
 - (id)initWithRows:(unsigned)rows columns:(unsigned)columns;
 
