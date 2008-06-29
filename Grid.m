@@ -18,15 +18,19 @@
     [super init];
     
     self.cells = [NSMutableDictionary new];
-    if (!self.cells)
+    if (!cells)
+        return nil;
+
+    self.laserBeamPath = [NSMutableArray new];
+    if (!laserBeamPath)
         return nil;
     
     self.laserActive = NO;
     self.numberOfRows = rows;
     self.numberOfColumns = columns;
-    
-    for (int r = 0; r < self.numberOfRows; r++) {
-        for (int c = 0; c < self.numberOfColumns; c++) {
+
+    for (int r = 0; r < numberOfRows; r++) {
+        for (int c = 0; c < numberOfColumns; c++) {
             NSValue *location = [NSValue valueWithPoint:NSMakePoint(r, c)];
             [self setCell:[BlankCell new] at:location];
         }
@@ -53,23 +57,36 @@
 }
 
 - (void)calculatePath {
-    self.laserBeamPath = [NSMutableArray new];
+    [laserBeamPath removeAllObjects];
     id cell = [self startingCell];
     id element = [LaserPathElement laserPathElementWithCell:cell entrySide:South];
     do {
-        [self.laserBeamPath addObject:element];
+        [laserBeamPath addObject:element];
         element = [element nextElementIn:self];
     } while (element);
 }
 
 - (void)activateCellsInPath {
-    self.laserActive = YES;
     [self calculatePath];
-    [self.laserBeamPath makeObjectsPerformSelector:@selector(activateCell)];
+    [laserBeamPath makeObjectsPerformSelector:@selector(activateCell)];
+}
+
+- (void)clearCellsInPath {
+    [laserBeamPath makeObjectsPerformSelector:@selector(clearCell)];
 }
 
 - (unsigned)laserLength {
     return [laserBeamPath count];
+}
+
+- (void)fireLaser {
+    self.laserActive = YES;
+    [self activateCellsInPath];
+}
+
+- (void)stopLaser {
+    self.laserActive = NO;
+    [self clearCellsInPath];
 }
 
 @synthesize cells;

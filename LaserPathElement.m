@@ -37,7 +37,11 @@
 }
 
 - (void)activateCell {
-    [self.cell setLaserEntersFrom:self.entrySide];
+    [cell setLaserEntersFrom:self.entrySide];
+}
+
+- (void)clearCell {
+    [cell clearCell];
 }
 
 

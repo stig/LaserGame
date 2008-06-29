@@ -28,9 +28,14 @@
 
 - (id)at:(NSValue*)position;
 - (void)setCell:(Cell*)cell at:(NSValue*)position;
+
+- (void)fireLaser;
+- (void)stopLaser;
+- (unsigned)laserLength;
+
 - (Cell*)startingCell;
 - (void)calculatePath;
 - (void)activateCellsInPath;
-- (unsigned)laserLength;
+- (void)clearCellsInPath;
 
 @end

@@ -24,5 +24,6 @@
 
 - (id)nextElementIn:(Grid*)grid;
 - (void)activateCell;
+- (void)clearCell;
 
 @end

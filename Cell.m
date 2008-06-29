@@ -17,14 +17,18 @@
     self.activeSegments = [NSMutableDictionary new];
     if (!activeSegments)
         return nil;
-    
+
+    [self clearCell];
+    return self;
+}
+
+- (void)clearCell {
     [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:North];
     [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:East];
     [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:South];
     [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:West];
-
-    return self;
 }
+
 
 - (NSString*)description {
     return [NSString stringWithFormat:@"<%@: %@>", [self className], [self isOn] ? @"On" : @"Off"];
@@ -48,8 +52,9 @@
 
 - (void)setLaserEntersFrom:(NSString*)direction {
     [activeSegments setObject:[NSNumber numberWithBool:1] forKey:direction];
-    NSString *exit = [self exitSideFor:direction];
-    [activeSegments setObject:[NSNumber numberWithBool:1] forKey:exit];
+    id exit = [self exitSideFor:direction];
+    if (![exit isKindOfClass:[NSNull class]])
+        [activeSegments setObject:[NSNumber numberWithBool:1] forKey:exit];
 }
 
 @synthesize activeSegments;

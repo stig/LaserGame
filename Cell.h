@@ -24,5 +24,6 @@
 - (BOOL)isSegmentOnFor:(NSString*)direction;
 - (NSString*)exitSideFor:(NSString*)enter;
 - (void)setLaserEntersFrom:(NSString*)direction;
+- (void)clearCell;
 
 @end
