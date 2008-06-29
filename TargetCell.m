@@ -7,7 +7,7 @@
 //
 
 #import "TargetCell.h"
-
+#import "GridDirection.h"
 
 @implementation TargetCell
 
@@ -20,10 +20,10 @@
     if (!self.exitSides)
         return nil;
     
-    [self.exitSides setObject:[NSNull null] forKey:@"North"];
-    [self.exitSides setObject:[NSNull null] forKey:@"East"];
-    [self.exitSides setObject:[NSNull null] forKey:@"South"];
-    [self.exitSides setObject:[NSNull null] forKey:@"West"];
+    [self.exitSides setObject:[NSNull null] forKey:North];
+    [self.exitSides setObject:[NSNull null] forKey:East];
+    [self.exitSides setObject:[NSNull null] forKey:South];
+    [self.exitSides setObject:[NSNull null] forKey:West];
     
     return self;
 }

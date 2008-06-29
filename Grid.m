@@ -10,6 +10,7 @@
 #import "Cell.h"
 #import "BlankCell.h"
 #import "LaserPathElement.h"
+#import "GridDirection.h"
 
 @implementation Grid
 
@@ -54,7 +55,7 @@
 - (void)calculatePath {
     self.laserBeamPath = [NSMutableArray new];
     id cell = [self startingCell];
-    id element = [LaserPathElement laserPathElementWithCell:cell entrySide:@"South"];
+    id element = [LaserPathElement laserPathElementWithCell:cell entrySide:South];
     do {
         [self.laserBeamPath addObject:element];
         element = [element nextElementIn:self];

@@ -7,7 +7,7 @@
 //
 
 #import "Cell.h"
-
+#import "GridDirection.h"
 
 @implementation Cell
 
@@ -18,10 +18,10 @@
     if (!self.activeSegments)
         return nil;
     
-    [self.activeSegments setObject:[NSNumber numberWithBool:NO] forKey:@"North"];
-    [self.activeSegments setObject:[NSNumber numberWithBool:NO] forKey:@"East"];
-    [self.activeSegments setObject:[NSNumber numberWithBool:NO] forKey:@"South"];
-    [self.activeSegments setObject:[NSNumber numberWithBool:NO] forKey:@"West"];
+    [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:North];
+    [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:East];
+    [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:South];
+    [activeSegments setObject:[NSNumber numberWithBool:NO] forKey:West];
 
     return self;
 }
@@ -31,7 +31,7 @@
 }
 
 - (BOOL)isOn {
-    return [[self.activeSegments allValues] indexOfObjectIdenticalTo:[NSNumber numberWithBool:YES]] != NSNotFound;
+    return [[activeSegments allValues] indexOfObjectIdenticalTo:[NSNumber numberWithBool:YES]] != NSNotFound;
 }
 
 - (BOOL)isOff {

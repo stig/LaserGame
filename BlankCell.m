@@ -7,7 +7,7 @@
 //
 
 #import "BlankCell.h"
-
+#import "GridDirection.h"
 
 @implementation BlankCell
 
@@ -20,10 +20,10 @@
     if (!self.exitSides)
         return nil;
 
-    [self.exitSides setObject:@"South" forKey:@"North"];
-    [self.exitSides setObject:@"West" forKey:@"East"];
-    [self.exitSides setObject:@"North" forKey:@"South"];
-    [self.exitSides setObject:@"East" forKey:@"West"];
+    [self.exitSides setObject:South forKey:North];
+    [self.exitSides setObject:West forKey:East];
+    [self.exitSides setObject:North forKey:South];
+    [self.exitSides setObject:East forKey:West];
 
     return self;
 }

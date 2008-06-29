@@ -8,6 +8,7 @@
 
 #import "BlankCellUnit.h"
 #import "BlankCell.h"
+#import "GridDirection.h"
 
 @implementation BlankCellUnit
 
@@ -19,28 +20,28 @@
 
 - (void)testCellSegmentState {
     id cell = [BlankCell new];
-    STAssertFalse([cell isSegmentOnFor:@"North"], nil);
-    STAssertFalse([cell isSegmentOnFor:@"East"], nil);
-    STAssertFalse([cell isSegmentOnFor:@"South"], nil);
-    STAssertFalse([cell isSegmentOnFor:@"West"], nil);
+    STAssertFalse([cell isSegmentOnFor:North], nil);
+    STAssertFalse([cell isSegmentOnFor:East], nil);
+    STAssertFalse([cell isSegmentOnFor:South], nil);
+    STAssertFalse([cell isSegmentOnFor:West], nil);
 }
 
 - (void)testExitSides {
     id cell = [BlankCell new];
-    STAssertEqualObjects([cell exitSideFor:@"North"], @"South", nil);
-    STAssertEqualObjects([cell exitSideFor:@"East"], @"West", nil);
-    STAssertEqualObjects([cell exitSideFor:@"South"], @"North", nil);
-    STAssertEqualObjects([cell exitSideFor:@"West"], @"East", nil);
+    STAssertEqualObjects([cell exitSideFor:North], South, nil);
+    STAssertEqualObjects([cell exitSideFor:East], West, nil);
+    STAssertEqualObjects([cell exitSideFor:South], North, nil);
+    STAssertEqualObjects([cell exitSideFor:West], East, nil);
 }
 
 - (void)testCellLaserActivity {
     id cell = [BlankCell new];
-    [cell setLaserEntersFrom:@"North"];
+    [cell setLaserEntersFrom:North];
     STAssertTrue([cell isOn], nil);
-    STAssertTrue([cell isSegmentOnFor:@"North"], nil);
-    STAssertFalse([cell isSegmentOnFor:@"East"], nil);
-    STAssertTrue([cell isSegmentOnFor:@"South"], nil);
-    STAssertFalse([cell isSegmentOnFor:@"West"], nil);
+    STAssertTrue([cell isSegmentOnFor:North], nil);
+    STAssertFalse([cell isSegmentOnFor:East], nil);
+    STAssertTrue([cell isSegmentOnFor:South], nil);
+    STAssertFalse([cell isSegmentOnFor:West], nil);
 }
 
 @end

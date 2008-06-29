@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern NSString * const North;
+extern NSString * const East;
+extern NSString * const South;
+extern NSString * const West;
 
 @interface GridDirection : NSObject {
 

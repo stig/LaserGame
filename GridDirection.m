@@ -12,6 +12,11 @@
 #import "GridDirectionSouth.h"
 #import "GridDirectionWest.h"
 
+NSString * const North = @"North";
+NSString * const East = @"East";
+NSString * const South = @"South";
+NSString * const West = @"West";
+
 @implementation GridDirection
 
 + (NSString*)directionSymbol {

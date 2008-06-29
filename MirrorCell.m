@@ -7,6 +7,7 @@
 //
 
 #import "MirrorCell.h"
+#import "GridDirection.h"
 
 
 @implementation MirrorCell
@@ -43,18 +44,18 @@
 
 - (void)leanLeft {
     self.leansLeft = YES;
-    [self.exitSides setObject:@"East" forKey:@"North"];
-    [self.exitSides setObject:@"North" forKey:@"East"];
-    [self.exitSides setObject:@"West" forKey:@"South"];
-    [self.exitSides setObject:@"South" forKey:@"West"];
+    [self.exitSides setObject:East forKey:North];
+    [self.exitSides setObject:North forKey:East];
+    [self.exitSides setObject:West forKey:South];
+    [self.exitSides setObject:South forKey:West];
 }
 
 - (void)leanRight {
     self.leansLeft = NO;
-    [self.exitSides setObject:@"West" forKey:@"North"];
-    [self.exitSides setObject:@"South" forKey:@"East"];
-    [self.exitSides setObject:@"East" forKey:@"South"];
-    [self.exitSides setObject:@"North" forKey:@"West"];
+    [self.exitSides setObject:West forKey:North];
+    [self.exitSides setObject:South forKey:East];
+    [self.exitSides setObject:East forKey:South];
+    [self.exitSides setObject:North forKey:West];
 }
 
 - (NSString*)description {

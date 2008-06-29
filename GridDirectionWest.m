@@ -12,11 +12,11 @@
 @implementation GridDirectionWest
 
 + (NSString*)directionSymbol {
-    return @"West";
+    return West;
 }
 
 + (NSString*)adjecentInversionSymbol {
-    return @"East";
+    return East;
 }
 
 + (NSString*)vector {
