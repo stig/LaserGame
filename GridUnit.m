@@ -17,13 +17,13 @@
 
 - (void)testInitialConditions {
     id grid = [Grid new];
-    STAssertFalse([grid laserIsActive], nil);
+    STAssertFalse([grid laserActive], nil);
     STAssertTrue([[grid at:[NSValue valueWithPoint:NSMakePoint(1, 1)]] isKindOfClass:[BlankCell class]], nil);
 }
 
 - (void)testNonDefaultGridSizeInitialConditions {
     id grid = [[Grid alloc] initWithRows:4 columns:4];    
-    STAssertFalse([grid laserIsActive], nil);
+    STAssertFalse([grid laserActive], nil);
     STAssertTrue([[grid at:[NSValue valueWithPoint:NSMakePoint(1, 1)]] isKindOfClass:[BlankCell class]], nil);
     STAssertTrue([[grid at:[NSValue valueWithPoint:NSMakePoint(2, 3)]] isKindOfClass:[BlankCell class]], nil);
     STAssertTrue([[grid at:[NSValue valueWithPoint:NSMakePoint(2, 3)]] isOff], nil);

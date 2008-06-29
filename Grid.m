@@ -21,7 +21,7 @@
     if (!self.cells)
         return nil;
     
-    self.laserIsActive = NO;
+    self.laserActive = NO;
     self.numberOfRows = rows;
     self.numberOfColumns = columns;
     
@@ -63,7 +63,7 @@
 }
 
 - (void)activateCellsInPath {
-    self.laserIsActive = YES;
+    self.laserActive = YES;
     [self calculatePath];
     [self.laserBeamPath makeObjectsPerformSelector:@selector(activateCell)];
 }
@@ -73,7 +73,7 @@
 }
 
 @synthesize cells;
-@synthesize laserIsActive;
+@synthesize laserActive;
 @synthesize numberOfRows;
 @synthesize numberOfColumns;
 @synthesize laserBeamPath;
