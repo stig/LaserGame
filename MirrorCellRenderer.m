@@ -25,8 +25,8 @@
 
     NSRect r = [self rectScaledDownBy:0.25];
     NSPoint ll = r.origin;
-    NSPoint lr = NSMakePoint(r.origin.x, r.origin.y + r.size.width);
-    NSPoint ul = NSMakePoint(r.origin.x + r.size.height, r.origin.y);
+    NSPoint lr = NSMakePoint(r.origin.x, r.origin.y + r.size.height);
+    NSPoint ul = NSMakePoint(r.origin.x + r.size.width, r.origin.y);
     NSPoint ur = NSMakePoint(r.origin.x + r.size.width, r.origin.y + r.size.height);
     
     if ([cell isLeft]) {
