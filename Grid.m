@@ -57,6 +57,7 @@
 }
 
 - (void)calculatePath {
+    [self willChangeValueForKey:@"laserLength"];
     [laserBeamPath removeAllObjects];
     id cell = [self startingCell];
     id element = [LaserPathElement laserPathElementWithCell:cell entrySide:South];
@@ -64,6 +65,7 @@
         [laserBeamPath addObject:element];
         element = [element nextElementIn:self];
     } while (element);
+    [self didChangeValueForKey:@"laserLength"];
 }
 
 - (void)activateCellsInPath {
