@@ -11,12 +11,12 @@
 @class Grid;
 
 @interface CellRenderer : NSObject {
-    NSValue *cellLocation;
+    NSPoint cellLocation;
     Grid *grid;
     NSRect rect;
 }
 
-@property(copy) NSValue *cellLocation;
+@property(assign) NSPoint cellLocation;
 @property(retain) Grid *grid;
 @property NSRect rect;
 

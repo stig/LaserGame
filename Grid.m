@@ -31,8 +31,7 @@
 
     for (int r = 0; r < numberOfRows; r++) {
         for (int c = 0; c < numberOfColumns; c++) {
-            NSValue *location = [NSValue valueWithPoint:NSMakePoint(r, c)];
-            [self setCell:[BlankCell new] at:location];
+            [self setCell:[BlankCell new] at:NSMakePoint(r, c)];
         }
     }
     
@@ -43,17 +42,17 @@
     return [self initWithRows:3 columns:3];
 }
 
-- (id)at:(NSValue*)position {
-    return [cells objectForKey:position];
+- (id)at:(NSPoint)position {
+    return [cells objectForKey:[NSValue valueWithPoint:position]];
 }
 
-- (void)setCell:(Cell*)cell at:(NSValue*)position {
+- (void)setCell:(Cell*)cell at:(NSPoint)position {
     cell.gridLocation = position;
-    [cells setObject:cell forKey:position];
+    [cells setObject:cell forKey: [NSValue valueWithPoint: position]];
 }
 
 - (Cell*)startingCell {
-    return [self at:[NSValue valueWithPoint:NSMakePoint(0, 0)]];
+    return [self at:NSMakePoint(0, 0)];
 }
 
 - (void)calculatePath {

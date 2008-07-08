@@ -59,7 +59,7 @@
 }
 
 - (NSString*)description {
-    return leansLeft ? @"Left-leaning mirror" : @"Right-leaning mirror";
+    return [NSString stringWithFormat:@"<%@: %u,%u %@>", leansLeft ? @"LeftMirror" : @"RightMirror", (unsigned)gridLocation.x, (unsigned)gridLocation.y, [self isOn] ? @"On" : @"Off"];
 }
 
 @synthesize leansLeft;

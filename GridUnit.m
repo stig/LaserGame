@@ -13,7 +13,8 @@
 #import "MirrorCell.h"
 #import "TargetCell.h"
 
-#define Point(x, y) [NSValue valueWithPoint:NSMakePoint(x, y)]
+#define Point(x, y) NSMakePoint(x, y)
+#define VPoint(x, y) [NSValue valueWithPoint:NSMakePoint(x, y)]
 
 @implementation GridUnit
 
@@ -47,19 +48,19 @@
     STAssertEquals([grid laserLength], (unsigned)9, nil);
     
     NSSet *pathElements = [NSSet setWithObjects:
-                           Point(0, 0),
-                           Point(1, 0),
-                           Point(2, 0),
-                           Point(3, 0),
-                           Point(3, 1),
-                           Point(3, 2),
-                           Point(3, 3),
-                           Point(3, 4),
-                           Point(4, 4),
+                           VPoint(0, 0),
+                           VPoint(1, 0),
+                           VPoint(2, 0),
+                           VPoint(3, 0),
+                           VPoint(3, 1),
+                           VPoint(3, 2),
+                           VPoint(3, 3),
+                           VPoint(3, 4),
+                           VPoint(4, 4),
                            nil];
 
     for (NSValue *elem in [grid cells]) {
-        id cell = [grid at:elem];
+        id cell = [grid at:[elem pointValue]];
         if ([pathElements containsObject:elem])
             STAssertTrue([cell isOn], @"%@", cell);
         else

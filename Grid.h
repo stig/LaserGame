@@ -26,8 +26,8 @@
 
 - (id)initWithRows:(unsigned)rows columns:(unsigned)columns;
 
-- (id)at:(NSValue*)position;
-- (void)setCell:(Cell*)cell at:(NSValue*)position;
+- (id)at:(NSPoint)position;
+- (void)setCell:(Cell*)cell at:(NSPoint)position;
 
 - (void)fireLaser;
 - (void)stopLaser;

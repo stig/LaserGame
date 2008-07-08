@@ -31,7 +31,7 @@
 
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<%@: %@>", [self className], [self isOn] ? @"On" : @"Off"];
+    return [NSString stringWithFormat:@"<%@: %u,%u %@>", [self className], (unsigned)gridLocation.x, (unsigned)gridLocation.y, [self isOn] ? @"On" : @"Off"];
 }
 
 - (BOOL)isOn {
