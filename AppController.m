@@ -37,11 +37,11 @@
 #pragma mark Pass-through
 
 - (unsigned)numberOfRows {
-    return [grid numberOfRows];
+    return [grid rows];
 }
 
 - (unsigned)numberOfColumns {
-    return [grid numberOfColumns];
+    return [grid columns];
 }
 
 - (CellRenderer*)rendererForCell:(NSPoint)point {

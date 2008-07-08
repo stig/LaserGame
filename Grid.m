@@ -26,11 +26,11 @@
         return nil;
     
     self.laserActive = NO;
-    self.numberOfRows = rows;
-    self.numberOfColumns = columns;
+    self.rows = rows;
+    self.columns = columns;
 
-    for (int r = 0; r < numberOfRows; r++) {
-        for (int c = 0; c < numberOfColumns; c++) {
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < columns; c++) {
             [self setCell:[BlankCell new] at:NSMakePoint(r, c)];
         }
     }
@@ -92,7 +92,7 @@
 
 @synthesize cells;
 @synthesize laserActive;
-@synthesize numberOfRows;
-@synthesize numberOfColumns;
+@synthesize rows;
+@synthesize columns;
 @synthesize laserBeamPath;
 @end

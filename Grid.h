@@ -13,15 +13,15 @@
 @interface Grid : NSObject {
     NSMutableDictionary *cells;
     BOOL laserActive;
-    unsigned numberOfRows;
-    unsigned numberOfColumns;
+    unsigned rows;
+    unsigned columns;
     NSMutableArray *laserBeamPath;
 }
 
 @property(retain) NSMutableDictionary *cells;
 @property BOOL laserActive;
-@property unsigned numberOfRows;
-@property unsigned numberOfColumns;
+@property unsigned rows;
+@property unsigned columns;
 @property(retain) NSMutableArray *laserBeamPath;
 
 - (id)initWithRows:(unsigned)rows columns:(unsigned)columns;

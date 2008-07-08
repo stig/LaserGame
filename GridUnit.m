@@ -22,8 +22,8 @@
     id grid = [Grid new];
     STAssertFalse([grid laserActive], nil);
     STAssertEquals([grid laserLength], (unsigned)0, nil);
-    STAssertEquals([grid numberOfRows], (int)3, nil);
-    STAssertEquals([grid numberOfColumns], (int)3, nil);
+    STAssertEquals([grid rows], (unsigned)3, nil);
+    STAssertEquals([grid columns], (unsigned)3, nil);
     STAssertEqualObjects([grid startingCell], [grid at:Point(0, 0)], @"%@", [grid cells]);
     STAssertTrue([[grid at:Point(1, 1)] isKindOfClass:[BlankCell class]], nil);
 }
