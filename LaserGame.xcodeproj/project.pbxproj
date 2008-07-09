@@ -49,7 +49,6 @@
 		53DA93300E1050EF007FB733 /* TargetCellRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 53DA932E0E1050EF007FB733 /* TargetCellRenderer.h */; };
 		53DA93310E1050EF007FB733 /* TargetCellRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA932F0E1050EF007FB733 /* TargetCellRenderer.m */; };
 		53DA94910E1193B8007FB733 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA948D0E1193A5007FB733 /* AppController.m */; };
-		53DA94D10E1196B7007FB733 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA94D00E1196B7007FB733 /* Board.m */; };
 		53DA952E0E1223B4007FB733 /* Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533B38FC0E0E95CA002CA793 /* Model.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -133,8 +132,6 @@
 		53DA932F0E1050EF007FB733 /* TargetCellRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetCellRenderer.m; sourceTree = "<group>"; };
 		53DA948C0E1193A5007FB733 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		53DA948D0E1193A5007FB733 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
-		53DA94CF0E1196B7007FB733 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
-		53DA94D00E1196B7007FB733 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* LaserGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaserGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -311,8 +308,6 @@
 				53DA93200E105052007FB733 /* View */,
 				53DA948C0E1193A5007FB733 /* AppController.h */,
 				53DA948D0E1193A5007FB733 /* AppController.m */,
-				53DA94CF0E1196B7007FB733 /* Board.h */,
-				53DA94D00E1196B7007FB733 /* Board.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -507,7 +502,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				53DA94910E1193B8007FB733 /* AppController.m in Sources */,
-				53DA94D10E1196B7007FB733 /* Board.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

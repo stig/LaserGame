@@ -34,14 +34,11 @@
 - (void)testRectScaling {
     id cell = [BlankCell new];
     id renderer = [[CellRenderer rendererFor:cell] new];
-    [renderer setRect:NSMakeRect(0, 0, 10, 10)];
-    NSRect scaled = [renderer rectScaledDownBy:0.1];
+    NSRect scaled = [renderer rect:NSMakeRect(0, 0, 10, 10) scaledDownBy:0.1];
     STAssertEquals(scaled, NSMakeRect(1, 1, 8, 8), nil);
 
-    [renderer setRect:NSMakeRect(0, 0, 10, 100)];
-    scaled = [renderer rectScaledDownBy:0.1];
+    scaled = [renderer rect:NSMakeRect(0, 0, 10, 100) scaledDownBy:0.1];
     STAssertEquals(scaled, NSMakeRect(1, 10, 8, 80), nil);
 }
-
 
 @end

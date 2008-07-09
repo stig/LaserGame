@@ -20,7 +20,7 @@
 }
 
 + (Vector)vector {
-    return MakeVector(0, 1);
+    return MakeVector(0, -1);
 }
 
 @end

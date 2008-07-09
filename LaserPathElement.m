@@ -43,6 +43,10 @@
     [cell clearCell];
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"LPE through %@", self.cell];
+}
+
 
 @synthesize cell;
 @synthesize entrySide;

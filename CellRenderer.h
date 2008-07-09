@@ -10,23 +10,18 @@
 
 @class Grid;
 
-@interface CellRenderer : NSObject {
+@interface CellRenderer : NSCell {
     NSPoint cellLocation;
     Grid *grid;
-    NSRect rect;
 }
 
 @property(assign) NSPoint cellLocation;
 @property(retain) Grid *grid;
-@property NSRect rect;
 
 + (Class)modelClass;
 + (Class)rendererFor:(id)cell;
 
-- (void)render;
-- (void)renderBorder;
-- (void)renderContents;
-
-- (NSRect)rectScaledDownBy:(float)scale;
+- (void)clickCell;
+- (NSRect)rect:(NSRect)r scaledDownBy:(float)scale;
 
 @end

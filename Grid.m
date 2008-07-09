@@ -14,7 +14,7 @@
 
 @implementation Grid
 
-- (id)initWithRows:(unsigned)rows columns:(unsigned)columns {
+- (id)initWithRows:(unsigned)r columns:(unsigned)c {
     [super init];
     
     self.cells = [NSMutableDictionary new];
@@ -26,8 +26,8 @@
         return nil;
     
     self.laserActive = NO;
-    self.rows = rows;
-    self.columns = columns;
+    self.rows = r;
+    self.columns = c;
 
     for (int r = 0; r < rows; r++) {
         for (int c = 0; c < columns; c++) {
@@ -52,7 +52,7 @@
 }
 
 - (Cell*)startingCell {
-    return [self at:NSMakePoint(0, 0)];
+    return [self at:NSMakePoint(0, self.rows-1)];
 }
 
 - (void)calculatePath {

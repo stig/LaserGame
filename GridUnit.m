@@ -24,7 +24,7 @@
     STAssertEquals([grid laserLength], (unsigned)0, nil);
     STAssertEquals([grid rows], (unsigned)3, nil);
     STAssertEquals([grid columns], (unsigned)3, nil);
-    STAssertEqualObjects([grid startingCell], [grid at:Point(0, 0)], @"%@", [grid cells]);
+    STAssertEqualObjects([grid startingCell], [grid at:Point(0, 2)], @"%@", [grid cells]);
     STAssertTrue([[grid at:Point(1, 1)] isKindOfClass:[BlankCell class]], nil);
 }
 
@@ -32,7 +32,7 @@
     id grid = [[Grid alloc] initWithRows:4 columns:4];    
     STAssertFalse([grid laserActive], nil);
     STAssertEquals([grid laserLength], (unsigned)0, nil);
-    STAssertEqualObjects([grid startingCell], [grid at:Point(0, 0)], nil);
+    STAssertEqualObjects([grid startingCell], [grid at:Point(0, 3)], nil);
     STAssertTrue([[grid at:Point(1, 1)] isKindOfClass:[BlankCell class]], nil);
     STAssertTrue([[grid at:Point(2, 3)] isKindOfClass:[BlankCell class]], nil);
     STAssertTrue([[grid at:Point(2, 3)] isOff], nil);
@@ -44,23 +44,24 @@
     STAssertEquals([grid laserLength], (unsigned)0, nil);
     STAssertEquals([[grid cells] count], (unsigned)5 * 5, nil);
     
-    id cell = [grid at:Point(0, 0)];
+    id cell = [grid at:Point(0, 4)];
     STAssertTrue([cell isOff], nil);
 
     [grid activateCellsInPath];
     STAssertTrue([cell isOn], nil);    
     STAssertEquals([grid laserLength], (unsigned)9, nil);
+    NSLog(@"path: %@", [grid laserBeamPath]);
     
     NSSet *pathElements = [NSSet setWithObjects:
-                           VPoint(0, 0),
-                           VPoint(1, 0),
-                           VPoint(2, 0),
-                           VPoint(3, 0),
-                           VPoint(3, 1),
-                           VPoint(3, 2),
-                           VPoint(3, 3),
+                           VPoint(0, 4),
+                           VPoint(1, 4),
+                           VPoint(2, 4),
                            VPoint(3, 4),
-                           VPoint(4, 4),
+                           VPoint(3, 3),
+                           VPoint(3, 2),
+                           VPoint(3, 1),
+                           VPoint(3, 0),
+                           VPoint(4, 0),
                            nil];
 
     for (NSValue *elem in [grid cells]) {
@@ -76,7 +77,7 @@
     id grid = [GridFactory demoGrid];
     [grid fireLaser];
     STAssertTrue([grid laserActive], nil);
-    STAssertTrue([[grid at:Point(4, 4)] isOn], nil);
+    STAssertTrue([[grid at:Point(4, 0)] isOn], nil);
 }
 
 - (void)testStopLaser {

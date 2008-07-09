@@ -16,20 +16,21 @@
     return [MirrorCell class];
 }
 
-- (void)renderContents {
-    [super renderContents];
+- (void)drawInteriorWithFrame:(NSRect)r inView:(NSView*)v {
+    [super drawInteriorWithFrame:r inView:v];
+    
     [NSBezierPath setDefaultLineWidth:3];
     
     id path = [NSBezierPath bezierPath];
     id cell = [grid at:cellLocation];
 
-    NSRect r = [self rectScaledDownBy:0.25];
+    r = [self rect:r scaledDownBy:0.25];
     NSPoint ll = r.origin;
     NSPoint lr = NSMakePoint(r.origin.x, r.origin.y + r.size.height);
     NSPoint ul = NSMakePoint(r.origin.x + r.size.width, r.origin.y);
     NSPoint ur = NSMakePoint(r.origin.x + r.size.width, r.origin.y + r.size.height);
     
-    if ([cell isLeft]) {
+    if ([cell isRight]) {
         [path moveToPoint:ul];
         [path lineToPoint:lr];
         
@@ -38,6 +39,16 @@
         [path lineToPoint:ur];
     }
     [path stroke];
+}
+
+- (void)clickCell {
+    id cell = [grid at:cellLocation];
+    if ([cell isLeft]) {
+        [cell leanRight];
+    } else {
+        [cell leanLeft];
+    }
+    
 }
 
 @end

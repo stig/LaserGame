@@ -27,25 +27,13 @@
     @throw(@"unrecognised cell");
 }
 
-- (void)render {
-    [self renderBorder];
-    [self renderContents];
-}
-
-- (void)renderBorder {
+- (void)drawInteriorWithFrame:(NSRect)r inView:(NSView*)v {
     [[NSColor blueColor] set];
-    [NSBezierPath setDefaultLineWidth:1];
-    [NSBezierPath strokeRect:self.rect];
+    [NSBezierPath setDefaultLineWidth:2];
+    [NSBezierPath strokeRect:r];
 }
 
-- (void)renderContents {
-    NSLog(@"%@ <%3.0f %3.0f %3.0f %3.0f>", 
-          [self className],
-          self.rect.origin.x, self.rect.origin.y, self.rect.size.height, self.rect.size.width);
-}
-
-- (NSRect)rectScaledDownBy:(float)scale {
-    NSRect r = self.rect;
+- (NSRect)rect:(NSRect)r scaledDownBy:(float)scale {
     float dw = r.size.width * scale;
     float dh = r.size.height * scale;
     r.origin.x += dw;
@@ -55,7 +43,10 @@
     return r;
 }
 
+- (void)clickCell {
+    NSLog(@"-[%@ clickCell]", [self className]);
+}
+
 @synthesize cellLocation;
 @synthesize grid;
-@synthesize rect;
 @end

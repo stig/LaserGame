@@ -28,7 +28,7 @@ NSString * const West = @"West";
 }
 
 + (Vector)vector {
-    return NSMakePoint(0, 0);
+    return MakeVector(0, 0);
 }
 
 + (Class)directionFor:(NSString*)symbol {

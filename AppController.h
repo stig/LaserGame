@@ -11,18 +11,16 @@
 @class CellRenderer;
 
 @interface AppController : NSObjectController {
-    IBOutlet NSView *boardView;
+    IBOutlet NSMatrix *board;
     IBOutlet NSButton *fireButton;
     IBOutlet NSTextField *lengthField;
 
     Grid *grid;
 }
 
+- (void)configureMatrix;
+
 - (IBAction)toggleLaser:(id)sender;
-
-- (unsigned)numberOfRows;
-- (unsigned)numberOfColumns;
-
-- (CellRenderer*)rendererForCell:(NSPoint)point;
+- (IBAction)matrixClickAction:(id)sender;
 
 @end
