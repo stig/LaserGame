@@ -56,7 +56,6 @@
 }
 
 - (void)calculatePath {
-    [self willChangeValueForKey:@"laserLength"];
     [laserBeamPath removeAllObjects];
     id cell = [self startingCell];
     id element = [LaserPathElement laserPathElementWithCell:cell entrySide:South];
@@ -64,7 +63,6 @@
         [laserBeamPath addObject:element];
         element = [element nextElementIn:self];
     } while (element);
-    [self didChangeValueForKey:@"laserLength"];
 }
 
 - (void)activateCellsInPath {
@@ -74,6 +72,7 @@
 
 - (void)clearCellsInPath {
     [laserBeamPath makeObjectsPerformSelector:@selector(clearCell)];
+    [laserBeamPath removeAllObjects];
 }
 
 - (unsigned)laserLength {
@@ -81,13 +80,17 @@
 }
 
 - (void)fireLaser {
+    [self willChangeValueForKey:@"laserLength"];
     self.laserActive = YES;
     [self activateCellsInPath];
+    [self didChangeValueForKey:@"laserLength"];
 }
 
 - (void)stopLaser {
+    [self willChangeValueForKey:@"laserLength"];
     self.laserActive = NO;
     [self clearCellsInPath];
+    [self didChangeValueForKey:@"laserLength"];
 }
 
 @synthesize cells;

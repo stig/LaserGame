@@ -10,6 +10,9 @@
 #import "BlankCellRenderer.h"
 #import "MirrorCellRenderer.h"
 #import "TargetCellRenderer.h"
+#import "Cell.h"
+#import "Grid.h"
+#import "GridDirection.h"
 
 @implementation CellRenderer
 
@@ -27,10 +30,43 @@
     @throw(@"unrecognised cell");
 }
 
+- (void)renderLaserFromPoint:(NSPoint)a toPoint:(NSPoint)b {
+    [[NSColor yellowColor] set];
+    [NSBezierPath setDefaultLineWidth:6];
+    [NSBezierPath strokeLineFromPoint:a toPoint:b];
+
+    [[NSColor orangeColor] set];
+    [NSBezierPath setDefaultLineWidth:1];
+    [NSBezierPath strokeLineFromPoint:a toPoint:b];
+}
+
+- (void)renderLaserWithFrame:(NSRect)r inView:(NSView*)v {
+    NSPoint center = NSMakePoint(NSMidX(r), NSMidY(r));
+    Cell *cell = [grid at:cellLocation];
+
+    if ([cell isSegmentOnFor:North])
+        [self renderLaserFromPoint:center
+                           toPoint:NSMakePoint(NSMidX(r), NSMinY(r))];
+        
+    if ([cell isSegmentOnFor:East])
+        [self renderLaserFromPoint:center
+                           toPoint:NSMakePoint(NSMaxX(r), NSMidY(r))];
+    
+    if ([cell isSegmentOnFor:South])
+        [self renderLaserFromPoint:center
+                           toPoint:NSMakePoint(NSMidX(r), NSMaxY(r))];
+
+    if ([cell isSegmentOnFor:West])
+        [self renderLaserFromPoint:center
+                           toPoint:NSMakePoint(NSMinX(r), NSMidY(r))];
+    
+}
+
 - (void)drawInteriorWithFrame:(NSRect)r inView:(NSView*)v {
     [[NSColor blueColor] set];
     [NSBezierPath setDefaultLineWidth:2];
     [NSBezierPath strokeRect:r];
+    [self renderLaserWithFrame:r inView:v];
 }
 
 - (NSRect)rect:(NSRect)r scaledDownBy:(float)scale {
@@ -46,6 +82,7 @@
 - (void)clickCell {
     NSLog(@"-[%@ clickCell]", [self className]);
 }
+
 
 @synthesize cellLocation;
 @synthesize grid;

@@ -68,7 +68,7 @@
 
 - (IBAction)generateRandomGrid:(id)sender {
     grid = [[Grid alloc] initWithRows:10 columns:9];
-    [sender setNeedsDisplay:YES];
+    [self configureMatrix];
 }
 
 - (IBAction)toggleLaser:(id)sender {

@@ -24,6 +24,7 @@
     id path = [NSBezierPath bezierPath];
     id cell = [grid at:cellLocation];
 
+    [[NSColor blueColor] set];
     r = [self rect:r scaledDownBy:0.25];
     NSPoint ll = r.origin;
     NSPoint lr = NSMakePoint(r.origin.x, r.origin.y + r.size.height);

@@ -22,6 +22,7 @@
 + (Class)rendererFor:(id)cell;
 
 - (void)clickCell;
+- (void)renderLaserWithFrame:(NSRect)r inView:(NSView*)v;
 - (NSRect)rect:(NSRect)r scaledDownBy:(float)scale;
 
 @end
