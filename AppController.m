@@ -85,9 +85,10 @@
 - (IBAction)matrixClickAction:(id)sender {
     id cell = [sender selectedCell];
     [cell clickCell];
-    
-    [grid at:[cell cellLocation]];
-    NSLog(@"matrixClickAction: %@", [NSValue valueWithPoint:[cell cellLocation]]);
+    if ([grid laserActive]) {
+        [grid clearCellsInPath];
+        [grid activateCellsInPath];
+    }
     [board setNeedsDisplay:YES];
 }
 
