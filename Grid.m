@@ -51,6 +51,14 @@
     [cells setObject:cell forKey: [NSValue valueWithPoint: position]];
 }
 
+- (void)swapCell:(Cell*)a withCell:(Cell*)b {
+    NSPoint aLoc = [a gridLocation];
+    NSPoint bLoc = [b gridLocation];
+    
+    [self setCell:a at:bLoc];
+    [self setCell:b at:aLoc];
+}
+
 - (Cell*)startingCell {
     return [self at:NSMakePoint(0, self.rows-1)];
 }

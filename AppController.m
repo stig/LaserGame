@@ -43,6 +43,11 @@
     for (;columns < [grid columns]; columns++)
         [board addColumn];
 
+    if ([grid laserActive]) {
+        [grid clearCellsInPath];
+        [grid activateCellsInPath];
+    }
+    
     // The matrix is initialised from the nib with NSImageCell objects.
     // We need to replace these with copies of our EmptyCell class.
     for (int i = 0; i < rows; i++) {
@@ -85,12 +90,14 @@
 - (IBAction)matrixClickAction:(id)sender {
     id cell = [sender selectedCell];
     [cell clickCell];
-    if ([grid laserActive]) {
-        [grid clearCellsInPath];
-        [grid activateCellsInPath];
-    }
-    [board setNeedsDisplay:YES];
+    [self configureMatrix];
 }
 
+- (void)swapCellAtPoint:(NSPoint)a withCellAtPoint:(NSPoint)b {
+    NSLog(@"swapCellAtPoint:withCellAtPoint:");
+    [grid swapCell:[grid at:a]
+          withCell:[grid at:b]];
+    [self configureMatrix];
+}
 
 @end

@@ -95,5 +95,19 @@
     STAssertFalse([[grid at:Point(4, 4)] isOn], nil);
 }
 
+- (void)testSwapCells {
+    id grid = [GridFactory demoGrid];
+    
+    id a = [grid at:Point(0, 4)];
+    id b = [grid at:Point(1, 4)];    
+    STAssertTrue([a isKindOfClass:[MirrorCell class]], nil);
+    STAssertTrue([b isKindOfClass:[BlankCell class]], nil);
+
+    [grid swapCell:a withCell:b];
+    a = [grid at:Point(0, 4)];
+    b = [grid at:Point(1, 4)];    
+    STAssertTrue([a isKindOfClass:[BlankCell class]], nil);
+    STAssertTrue([b isKindOfClass:[MirrorCell class]], nil);
+}
 
 @end

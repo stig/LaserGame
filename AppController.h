@@ -23,4 +23,6 @@
 - (IBAction)toggleLaser:(id)sender;
 - (IBAction)matrixClickAction:(id)sender;
 
+- (void)swapCellAtPoint:(NSPoint)a withCellAtPoint:(NSPoint)b;
+
 @end

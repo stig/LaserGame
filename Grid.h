@@ -38,4 +38,6 @@
 - (void)activateCellsInPath;
 - (void)clearCellsInPath;
 
+- (void)swapCell:(Cell*)a withCell:(Cell*)b;
+
 @end
